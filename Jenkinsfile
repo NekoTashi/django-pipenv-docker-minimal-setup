@@ -2,8 +2,8 @@ podTemplate(
     label: 'jenkins-cicd', 
     inheritFrom: 'default',
     containers: [
-        containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat')
-    ]
+        containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
+    ],
     volumes: [
         hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
         secretVolume(mountPath: '/etc/remote-server/', secretName: 'ssh-key'),
