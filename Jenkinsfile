@@ -16,7 +16,7 @@ podTemplate(
         stage ('Extract') {
             checkout scm
             commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-            sh "echo ${commitId}"
+            // sh "echo ${commitId}"
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'mycreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                 sh 'echo $USERNAME && echo $PASSWORD'
             }
